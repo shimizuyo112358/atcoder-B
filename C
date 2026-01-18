@@ -1,0 +1,42 @@
+使用言語　C
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void judge(int t,int x,int y){
+  int o=x+y;
+   if((o>t)||((t-o)%2!=0)){//realxとrealyの和がtより小さくないとだめ　またその場合差が偶数
+      printf("No\n");
+       exit(0);
+    }
+    
+}
+
+int main(){
+  int N;
+  scanf("%d",&N);
+  int a;
+  int buckt=0,buckx=0,bucky=0;//前回の結果
+  for(a=1;a<=N;++a){
+    int t,x,y;
+    scanf("%d %d %d",&t,&x,&y);
+    int realt=t-buckt;//realtは処理一回ごとに動ける時間 移動回数
+    int realx=x-buckx;//移動距離
+    int realy=y-bucky;//同上
+    
+    realx = abs(realx);//自作関数の式は絶対値で考えるから
+    realy = abs(realy);
+    realt = abs(realt);
+    
+    judge(realt,realx,realy);
+    
+    //座標の更新
+    buckt=t;
+    buckx=x;
+    bucky=y;
+   
+  }
+  
+  printf("Yes\n");
+  
+}
