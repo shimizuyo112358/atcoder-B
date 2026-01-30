@@ -1,0 +1,36 @@
+使用言語　C
+
+#include<stdio.h>
+
+int main(){
+ int Q,loop;
+ scanf("%d",&Q);
+ //初期条件
+ int sound=0,play=0;
+ //soundは音量
+ //playが奇数の時再生、偶数の時は停止
+for(loop=0;loop<Q;++loop){
+  int operation;
+  scanf("%d",&operation);//操作を入力
+  if(operation==1){
+    sound+=1;
+  }
+  else if(operation==2){
+    if(sound>0){
+      sound-=1;
+    }
+  }
+  else if(operation==3){
+    play+=1;
+  }
+  
+  if(play%2==1&&sound>=3){
+    printf("Yes\n");
+  }
+  else{
+    printf("No\n");
+  }
+  
+}
+  return 0;
+}
