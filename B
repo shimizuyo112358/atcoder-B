@@ -1,0 +1,26 @@
+使用言語　C
+
+#include<stdio.h>
+
+int main(){
+  int N;
+  scanf("%d",&N);
+  int time[N];
+  for(int loop=0;loop<N;loop++){
+    scanf("%d",&time[loop]);
+  }//入力
+  
+for(int loop=0;loop<3;++loop){
+  int min=201,mas;
+  for(int search=0;search<N;++search){
+    if(min>time[search]){
+      min=time[search];
+      mas=search;
+    }
+   
+  }
+   printf("%d ",mas+1);
+   time[mas]=202;
+}
+ return 0;
+}
